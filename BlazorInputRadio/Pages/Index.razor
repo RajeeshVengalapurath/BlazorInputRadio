@@ -1,19 +1,32 @@
 ﻿@page "/"
 @using Models
 
-<EditForm Model="Car">
+@*<EditForm Model="Car">
     <InputRadioGroup @bind-Value="Car.Color">
         <InputRadio Value="Color.Red" />Red
         <InputRadio Value="Color.White" />White
         <InputRadio Value="Color.Black" />Black
     </InputRadioGroup>
+</EditForm>*@
+
+<EditForm Model="Car">
+    <InputRadioGroup Name="model" @bind-Value="Car.Model">
+        <InputRadioGroup Name="color" @bind-Value="Car.Color">
+        <InputRadio Name="color" Value="Color.Black" />Black<br>
+        <InputRadio Name="model" Value="Model.Model1" />Model1<br>
+
+        <InputRadio Name="color" Value="Color.Red" />Red<br>
+        <InputRadio Name="model" Value="Model.Model2" />Model2<br>
+
+        <InputRadio Name="color" Value="Color.White" />White<br>
+        <InputRadio Name="model" Value="Model.Model3" />Model3<br>
+        </InputRadioGroup>
+    </InputRadioGroup>
 </EditForm>
 
-@if(Car != null)
-{
-    @Car.Color
-}
+@Car.Model
+@Car.Color
 
 @code{
-    public Car Car { get; set; }=new Models.Car();
+    public Car Car { get; set; } = new Models.Car();
 }

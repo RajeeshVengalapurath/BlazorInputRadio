@@ -8,10 +8,10 @@ namespace BlazorInputRadio.Models
 {
     public class Car
     {
-        [Required]
-        public Color Color { get; set; }// = Color.Black;
-        [Required]
-        public Model Model { get; set; } = Model.Model1;
+        [Required, EnumDataType(typeof(Color))]
+        public Color? Color { get; set; } = null;
+        [Required, EnumDataType(typeof(Model))] 
+        public Model? Model { get; set; } = null;
     }
     public enum Color
     {
